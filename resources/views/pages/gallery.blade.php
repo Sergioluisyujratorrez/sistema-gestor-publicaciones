@@ -11,10 +11,7 @@
   <main class="gallery-container">
     <div class="section-head" style="margin-bottom: 0;">
       <h1 style="font-size: 32px; font-weight: 800;">Galería de <span style="color: var(--blue);">publicaciones</span></h1>
-      <a class="btn btn-warning" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        Nueva publicación
-      </a>
+      
     </div>
     <p style="color: var(--muted); margin-top: 8px;">Explora y gestiona todo tu contenido publicado en un solo lugar.</p>
 
@@ -147,19 +144,18 @@
       </section>
     </div>
 
-    <section class="cta-section" style="margin-top: 60px;">
+     <section class="cta-section" style="margin-top: 60px;">
       <div class="cta-icon">
         <span></span>
         <span></span>
         <span></span>
       </div>
       <div>
-        <h2>&iquest;Listo para publicar tu pr&oacute;ximo proyecto?</h2>
-        <p>Comparte tus ideas, documentos e im&aacute;genes con el mundo.</p>
+        <h2>&iquest;Tienes un proyecto que quieras realizar?</h2>
+        <p>Contactame para ver como podemos ayudarte a llevarlo a cabo.</p>
       </div>
       <div class="cta-actions">
-        <a class="btn btn-primary" href="#">Nueva publicaci&oacute;n</a>
-        <a class="btn btn-outline" href="#">Ver mis proyectos</a>
+        <a class="btn btn-outline" href="#">Contactar</a>
       </div>
     </section>
   </main>

@@ -15,11 +15,11 @@
     </a>
 
     <p class="side-label">Contenido</p>
-    <a href="#publicaciones">
+    <a href="{{ route('dashboard.publicaciones') }}" class="{{ request()->routeIs('dashboard.publicaciones') ? 'active' : '' }}">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 15-5-5-9 9"/></svg>
       Publicaciones
     </a>
-    <a href="#proyectos">
+    <a href="{{ route('dashboard.proyectos') }}" class="{{ request()->routeIs('dashboard.proyectos') ? 'active' : '' }}">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
       Proyectos
     </a>

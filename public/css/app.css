@@ -1634,7 +1634,10 @@ button { font-family: inherit; cursor: pointer; }
   box-shadow: var(--shadow);
 }
 
-.section-card { padding: 26px; }
+.section-card {
+  padding: 26px;
+  scroll-margin-top: 22px;
+}
 
 .card-head {
   display: flex;

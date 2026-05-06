@@ -11,10 +11,7 @@
   <main class="gallery-container">
     <div class="section-head" style="margin-bottom: 0;">
       <h1 style="font-size: 32px; font-weight: 800;">Todos los <span style="color: var(--blue);">proyectos</span></h1>
-      <a class="btn btn-warning" href="#">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        Nuevo Proyecto
-      </a>
+      
     </div>
     <p style="color: var(--muted); margin-top: 8px;">Explora y descubre todos los proyectos publicados.</p>
 
@@ -174,12 +171,11 @@
         <span></span>
       </div>
       <div>
-        <h2>&iquest;Tienes un proyecto para compartir?</h2>
-        <p>Publica tu proyecto y llega a miles de personas.</p>
+        <h2>&iquest;Tienes un proyecto que quieras realizar?</h2>
+        <p>Contactame para ver como podemos ayudarte a llevarlo a cabo.</p>
       </div>
       <div class="cta-actions">
-        <a class="btn btn-primary" href="#">Nuevo proyecto</a>
-        <a class="btn btn-outline" href="#">Ver mis proyectos</a>
+        <a class="btn btn-outline" href="#">Contactar</a>
       </div>
     </section>
   </main>

@@ -25,3 +25,11 @@ Route::get('/login', function () {
 Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->name('dashboard');
+
+Route::get('/dashboard/publicaciones', function () {
+    return view('dashboard.publications');
+})->name('dashboard.publicaciones');
+
+Route::get('/dashboard/proyectos', function () {
+    return view('dashboard.projects');
+})->name('dashboard.proyectos');
