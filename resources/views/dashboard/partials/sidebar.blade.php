@@ -23,30 +23,30 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
       Proyectos
     </a>
-    <a href="#">
+    <!-- <a href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
       Categorías
-    </a>
-    <a href="#">
+    </a> -->
+    <!-- <a href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4 12.4 5.2A2 2 0 0 0 11 4.6H5a2 2 0 0 0-2 2v6a2 2 0 0 0 .6 1.4l8.2 8.2a2 2 0 0 0 2.8 0l6-6a2 2 0 0 0 0-2.8Z"/><circle cx="7.5" cy="9.5" r="1.5"/></svg>
       Etiquetas
-    </a>
+    </a> -->
 
-    <p class="side-label">Analíticas</p>
+    <!-- <p class="side-label">Analíticas</p>
     <a href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
       Resumen
-    </a>
-    <a href="#">
+    </a> -->
+    <!-- <a href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>
       Visualizaciones
     </a>
     <a href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>
       Descargas
-    </a>
+    </a> -->
 
-    <p class="side-label">Configuración</p>
+    <!-- <p class="side-label">Configuración</p>
     <a href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M17 11l1.5 1.5L22 9"/></svg>
       Usuarios
@@ -58,7 +58,7 @@
     <a href="#">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a3 3 0 0 0-3 3v3H6a3 3 0 0 0 0 6h3v3a3 3 0 0 0 6 0v-3h3a3 3 0 0 0 0-6h-3V6a3 3 0 0 0-3-3Z"/></svg>
       Personalización
-    </a>
+    </a> -->
   </nav>
 
   <div class="upgrade-card">
@@ -66,10 +66,10 @@
       <span class="upgrade-icon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7Z"/></svg>
       </span>
-      Mejora tu plan
+     Bienvenido
     </div>
-    <p>Obtén más almacenamiento y funciones avanzadas.</p>
-    <a class="btn btn-primary btn-block" href="#">Actualizar plan</a>
+    <p>Este es tu sistema</p>
+    <!-- <a class="btn btn-primary btn-block" href="#">Actualizar plan</a> -->
   </div>
 
   <a class="logout" href="{{ route('login') }}">

@@ -280,7 +280,7 @@
       </svg>
     </div>
 
-    <div class="card metric-card">
+    <!-- <div class="card metric-card">
       <span class="metric-label">Visualizaciones</span>
       <strong class="metric-value">5.4K</strong>
       <small class="metric-trend">+ 16% este mes</small>
@@ -308,7 +308,7 @@
         </defs>
         <polyline fill="none" stroke="url(#sp4)" stroke-width="2.4" points="0,40 20,30 40,36 60,18 80,28 100,14 120,22 140,6 160,18 180,2 200,12"/>
       </svg>
-    </div>
+    </div> -->
 
     <div class="card activity-card">
       <strong>Actividad reciente</strong>
