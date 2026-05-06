@@ -1,0 +1,40 @@
+/* ---------- Tokens (tema claro = landing por defecto) ---------- */
+:root {
+  --blue: #1463ff;
+  --blue-2: #4591ff;
+  --violet: #7c35ff;
+  --cyan: #26d3ff;
+  --red: #ef4444;
+
+  --bg: #f8fafc;
+  --ink: #060b18;
+  --ink-2: #0b1220;
+  --panel: #ffffff;
+  --text: #0b1020;
+  --muted: #667085;
+  --line: #e7eaf0;
+  --green: #08c985;
+
+  --shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
+  --soft-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ---------- Tema oscuro (dashboard) ---------- */
+body.dashboard {
+  --blue: #2563ff;
+  --bg: #060b1c;
+  --bg-2: #080e21;
+  --side: #050918;
+  --panel: #0d1530;
+  --panel-2: #0f1a3a;
+  --text: #e7ecf6;
+  --muted: #8290b0;
+  --muted-2: #6a7898;
+  --line: rgba(255, 255, 255, 0.07);
+  --line-strong: rgba(255, 255, 255, 0.12);
+  --green: #22c55e;
+  --blue-soft: rgba(37, 99, 255, 0.15);
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+}

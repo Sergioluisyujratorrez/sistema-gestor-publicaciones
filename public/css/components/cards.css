@@ -1,0 +1,97 @@
+/* ============================================================
+   COMPONENTS (Cards, Stats, etc.)
+   ============================================================ */
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.section-card { padding: 26px; }
+
+.publication-card,
+.project-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--soft-shadow);
+}
+
+/* Thumbnails */
+.thumb {
+  height: 142px;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb span,
+.project-image span {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  color: #344054;
+  background: rgba(255, 255, 255, 0.86);
+  font-size: 10px;
+  font-weight: 800;
+  z-index: 2;
+}
+
+/* Patterns for Thumbs */
+.mountain {
+  background:
+    linear-gradient(140deg, transparent 0 50%, rgba(255, 255, 255, 0.9) 50% 57%, transparent 57%),
+    linear-gradient(30deg, transparent 0 44%, #eaf5ff 44% 52%, #4d95c7 52% 58%, transparent 58%),
+    linear-gradient(to top, #193a59 0 19%, #7bc4e3 19% 23%, transparent 23%),
+    linear-gradient(#bfe8fb, #e9f5ff 45%, #edf7fb 45%);
+}
+
+.building-dark,
+.concrete {
+  background:
+    linear-gradient(120deg, transparent 33%, rgba(0, 0, 0, 0.22) 33% 35%, transparent 35%),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.13) 0 1px, transparent 1px 38px),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.11) 0 1px, transparent 1px 35px),
+    linear-gradient(135deg, #aab6c0 0 35%, #263442 35% 100%);
+}
+
+.dashboard-mini { background: linear-gradient(135deg, #eee8ff, #cfc2ff); }
+.ocean {
+  background:
+    radial-gradient(circle at 66% 47%, #ecfbff 0 8%, transparent 9%),
+    radial-gradient(circle at 54% 54%, #0b6f91 0 20%, transparent 22%),
+    linear-gradient(135deg, #d9f1fb 0 28%, #4aa6c5 28% 55%, #045c84 55% 100%);
+}
+
+.document { background: linear-gradient(135deg, #f7f8fa, #e5e9ef); }
+
+/* Card Elements */
+.card-body { padding: 17px 15px 14px; }
+.card-body h3, .project-body h3 { margin: 0; font-size: 15px; font-weight: 800; }
+
+.meta { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; color: var(--muted); font-size: 12px; font-weight: 600; }
+
+/* Avatars */
+.avatar {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+  flex: 0 0 auto;
+}
+
+.avatar-one { background: radial-gradient(circle at 50% 33%, #f2b3a0 0 20%, transparent 22%), linear-gradient(135deg, #16223d, #071425); }
+.avatar-two { background: radial-gradient(circle at 50% 33%, #f8baa0 0 20%, transparent 22%), linear-gradient(135deg, #0b5e80, #0c1b31); }
+.avatar-three { background: radial-gradient(circle at 50% 33%, #eec0a4 0 20%, transparent 22%), linear-gradient(135deg, #334155, #0f172a); }
+.avatar-four { background: radial-gradient(circle at 50% 33%, #f3bd9a 0 20%, transparent 22%), linear-gradient(135deg, #1c355e, #060c18); }
+
+/* Badges */
+.badge { display: inline-flex; align-items: center; padding: 5px 12px; border-radius: 6px; font-size: 11.5px; font-weight: 700; }
+.badge-blue { color: #6da4ff; background: rgba(37, 99, 255, 0.18); }
+.badge-red { color: #ff7878; background: rgba(239, 68, 68, 0.18); }

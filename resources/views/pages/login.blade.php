@@ -1,0 +1,132 @@
+@extends('layouts.app')
+
+@section('title', 'Publisys - Iniciar sesión')
+@section('body-class', 'dashboard')
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/pages/login.css') }}">
+@endpush
+
+@section('content')
+  <main class="hero" style="min-height: 100vh; display: grid; align-items: stretch; overflow-y: auto;">
+    <div class="hero-grid" style="grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1240px; padding: 40px 24px;">
+      
+      <!-- Columna Izquierda -->
+      <div class="login-container">
+        <div class="hero-copy" style="padding: 0;">
+          <a class="brand" href="{{ route('home') }}" style="margin-bottom: 40px;">
+            <span class="brand-mark">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span>Publisys</span>
+          </a>
+          
+          <p class="eyebrow" style="margin-bottom: 24px;">PUBLICA. COMPARTE. IMPACTA.</p>
+          <h1 style="font-size: 64px; margin-bottom: 24px;">Tu contenido.<br><span>Sin límites.</span></h1>
+          <p class="hero-text" style="font-size: 17px; max-width: 480px; margin-bottom: 0;">
+            Publisys es el sistema de publicaciones digitales que te permite compartir imágenes,
+            PDFs y proyectos enlaces de forma elegante y profesional.
+          </p>
+        </div>
+
+        <div class="hero-art" style="height: 420px; margin: 20px 0; transform: scale(0.95); transform-origin: left center;">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="spark spark-a"></div>
+          <div class="spark spark-b"></div>
+          <div class="spark spark-c"></div>
+          <div class="asset asset-image"></div>
+          <div class="asset asset-pdf">PDF</div>
+          <div class="asset asset-link"></div>
+          <div class="asset asset-web"></div>
+          <div class="portrait">
+            <div class="hair"></div>
+            <div class="face">
+              <div class="brow brow-left"></div>
+              <div class="brow brow-right"></div>
+              <div class="eye eye-left"></div>
+              <div class="eye eye-right"></div>
+              <div class="glasses left-lens">ART</div>
+              <div class="glasses right-lens">DESIGN</div>
+              <div class="nose"></div>
+              <div class="mouth"></div>
+            </div>
+            <div class="hand hand-left"></div>
+            <div class="hand hand-right"></div>
+            <div class="tablet">
+              <span class="camera"></span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="login-footer-info">
+            <div class="info-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-2)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
+            <div class="info-text">
+              <strong>Seguro, confiable y siempre disponible</strong>
+              <p>Tu contenido protegido en todo momento.</p>
+            </div>
+          </div>
+          <p class="copyright">© {{ date('Y') }} Publisys. Todos los derechos reservados.</p>
+        </div>
+      </div>
+
+      <!-- Columna Derecha -->
+      <div style="display: grid; place-items: center;">
+        <div class="card section-card uploader login-card">
+          <div class="uploader-icon" style="margin: 0 auto 24px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          
+          <h2 style="font-size: 28px; margin-bottom: 8px; font-weight: 800;">Iniciar sesión</h2>
+          <p style="color: var(--muted); font-size: 14px; margin-bottom: 32px; font-weight: 500;">Accede a tu cuenta de administrador</p>
+
+          <form action="{{ route('dashboard') }}">
+            <div class="form-group">
+              <label>Email</label>
+              <div class="input-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <input type="email" class="text-input" placeholder="Ingresa tu email" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <div class="input-wrapper">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <input type="password" class="text-input" placeholder="Ingresa tu contraseña" required>
+                <svg class="toggle-pass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+              </div>
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-group">
+                <input type="checkbox">
+                <span>Recordarme</span>
+              </label>
+              <a href="#" class="forgot-pass">¿Olvidaste tu contraseña?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" style="height: 50px; font-size: 16px;">Iniciar sesión</button>
+
+            <div class="separator">o continúa con</div>
+
+            <button type="button" class="btn btn-secondary btn-block" style="height: 50px; display: flex; gap: 12px; border-color: var(--line-strong);">
+              <svg viewBox="0 0 24 24" style="width: 18px; height: 18px;"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+              Continuar con Google
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+@endsection
+
+{{-- Eliminamos el footer global para esta página --}}
+@section('footer')
+@endsection

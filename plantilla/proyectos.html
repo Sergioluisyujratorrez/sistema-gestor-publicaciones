@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publisys - Todos los proyectos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar" style="border-bottom: 1px solid var(--line); margin-bottom: 0;">
+    <a class="brand" href="index.html" aria-label="Publisys inicio">
+      <span class="brand-mark">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span>Publisys</span>
+    </a>
+
+    <div class="nav-panel">
+      <ul class="nav-links">
+        <li><a href="index.html#caracteristicas">Características</a></li>
+        <li><a href="index.html#proyectos" class="active">Proyectos</a></li>
+        <li><a href="index.html#precios">Precios</a></li>
+        <li><a href="#recursos">Recursos <span class="chevron"></span></a></li>
+        <li><a href="#docs">Docs</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Notificaciones" style="background: transparent; border-color: var(--line);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
+        </button>
+        <div class="user-chip">
+          <span class="avatar avatar-one"></span>
+          <div class="user-meta">
+            <strong>Carlos Mendoza</strong>
+            <small>Administrador</small>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="gallery-container">
+    <div class="section-head" style="margin-bottom: 0;">
+      <h1 style="font-size: 32px; font-weight: 800;">Todos los <span style="color: var(--blue);">proyectos</span></h1>
+      <a class="btn btn-primary" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Nuevo proyecto
+      </a>
+    </div>
+    <p style="color: var(--muted); margin-top: 8px;">Explora y descubre todos los proyectos publicados.</p>
+
+    <div class="gallery-toolbar">
+      <div class="tabs">
+        <button class="tab active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          Todos
+        </button>
+        <button class="tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10M7 12h10M7 16h10"/></svg>
+          Sitios web
+        </button>
+        <button class="tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          Aplicaciones
+        </button>
+        <button class="tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+          Dashboards
+        </button>
+        <button class="tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Tiendas online
+        </button>
+        <button class="tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+          Otros
+        </button>
+      </div>
+
+      <div class="gallery-actions">
+        <label class="search" style="min-width: 300px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" placeholder="Buscar proyectos...">
+        </label>
+        <select class="select-input" style="width: auto; min-width: 150px;">
+          <option>Más recientes</option>
+          <option>Más populares</option>
+          <option>A-Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="gallery-layout">
+      <aside class="filters-sidebar">
+        <h3>Filtros</h3>
+        
+        <div class="filter-group">
+          <h4>Tipo de proyecto</h4>
+          <div class="filter-list">
+            <label class="checkbox-group">
+              <input type="checkbox" checked>
+              Todos
+            </label>
+            <label class="checkbox-group">
+              <input type="checkbox">
+              Sitios web
+            </label>
+            <label class="checkbox-group">
+              <input type="checkbox">
+              Aplicaciones
+            </label>
+            <label class="checkbox-group">
+              <input type="checkbox">
+              Dashboards
+            </label>
+            <label class="checkbox-group">
+              <input type="checkbox">
+              Tiendas online
+            </label>
+            <label class="checkbox-group">
+              <input type="checkbox">
+              Otros
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Categorías</h4>
+          <select class="select-input">
+            <option>Todas las categorías</option>
+            <option>Fintech</option>
+            <option>SaaS</option>
+            <option>E-commerce</option>
+            <option>Portfolio</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Tecnologías</h4>
+          <select class="select-input">
+            <option>Todas las tecnologías</option>
+            <option>React</option>
+            <option>Vue.js</option>
+            <option>Node.js</option>
+            <option>Python</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Fecha</h4>
+          <div class="date-inputs">
+            <div class="date-field">
+              <label>Desde</label>
+              <input type="date" class="select-input">
+            </div>
+            <div class="date-field">
+              <label>Hasta</label>
+              <input type="date" class="select-input">
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-outline btn-block" style="border-color: var(--line); color: var(--text);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          Limpiar filtros
+        </button>
+      </aside>
+
+      <section class="gallery-content">
+        <div class="gallery-content-head">
+          <span>Mostrando 24 de 42 proyectos</span>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Project Card 1 -->
+          <article class="project-card">
+            <div class="project-image admin-preview">
+              <span>Dashboard</span>
+            </div>
+            <div class="project-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Fintech Dashboard</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p>Dashboard administrativo para control de finanzas y analíticas.</p>
+              <a class="ext-link" href="#" style="margin-bottom: 12px;">fintech-dashboard.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-one" style="width: 20px; height: 20px;"></span>
+                  Carlos Mendoza
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 2 -->
+          <article class="project-card">
+            <div class="project-image landing-preview">
+              <span>Landing page</span>
+            </div>
+            <div class="project-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">SaaS Landing Page</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p>Landing page moderna para SaaS startup tecnológica.</p>
+              <a class="ext-link" href="#" style="margin-bottom: 12px;">saas-landing.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-two" style="width: 20px; height: 20px;"></span>
+                  María López
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 3 -->
+          <article class="project-card">
+            <div class="project-image portfolio-preview">
+              <span>Sitio web</span>
+            </div>
+            <div class="project-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Portafolio Arquitectura</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p>Sitio web minimalista para estudio de arquitectura.</p>
+              <a class="ext-link" href="#" style="margin-bottom: 12px;">arquitectura-portfolio.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-four" style="width: 20px; height: 20px;"></span>
+                  Juan Pérez
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 4 -->
+          <article class="project-card">
+            <div class="project-image" style="background: linear-gradient(135deg, #1a0f3a, #4422aa);">
+              <span>Aplicación</span>
+            </div>
+            <div class="project-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">App Mobile UI</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p>Aplicación móvil para gestión de tareas y productividad.</p>
+              <a class="ext-link" href="#" style="margin-bottom: 12px;">mobile-ui-kit.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-one" style="width: 20px; height: 20px;"></span>
+                  Carlos Mendoza
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 5 -->
+          <article class="project-card">
+            <div class="project-image" style="background: linear-gradient(135deg, #f7f9fc, #d6deea);">
+              <span>Tienda online</span>
+            </div>
+            <div class="project-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Tienda E-commerce</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p>Tienda online moderna con múltiples métodos de pago.</p>
+              <a class="ext-link" href="#" style="margin-bottom: 12px;">tienda-online.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-two" style="width: 20px; height: 20px;"></span>
+                  María López
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 6 -->
+          <article class="project-card">
+            <div class="project-image thumb-concrete">
+              <span>Sitio web</span>
+            </div>
+            <div class="project-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Lineamientos de marca</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p>Sitio web con lineamientos y recursos de marca corporativa.</p>
+              <a class="ext-link" href="#" style="margin-bottom: 12px;">brand-guidelines.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-four" style="width: 20px; height: 20px;"></span>
+                  Juan Pérez
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="pagination">
+          <div class="pag-controls">
+            <button class="page-btn" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span class="page-dots">...</span>
+            <button class="page-btn">5</button>
+            <button class="page-btn" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+          </div>
+          <div class="pag-summary" style="display: flex; align-items: center; gap: 12px;">
+            <span>Ir a página</span>
+            <input type="number" class="select-input" value="1" style="width: 60px; height: 34px; text-align: center;">
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="cta-section" style="margin-top: 60px;">
+      <div class="cta-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div>
+        <h2>&iquest;Tienes un proyecto para compartir?</h2>
+        <p>Publica tu proyecto y llega a miles de personas.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="#">Nuevo proyecto</a>
+        <a class="btn btn-outline" href="#">Ver mis proyectos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <a class="brand" href="#">
+        <span class="brand-mark">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span>Publisys</span>
+      </a>
+      <p>&copy; 2024 Publisys. Todos los derechos reservados.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Producto</h3>
+      <a href="#">Características</a>
+      <a href="#">Precios</a>
+      <a href="#">Changelog</a>
+    </div>
+    <div class="footer-col">
+      <h3>Recursos</h3>
+      <a href="#">Documentación</a>
+      <a href="#">Guías</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h3>Empresa</h3>
+      <a href="#">Nosotros</a>
+      <a href="#">Contacto</a>
+      <a href="#">Privacidad</a>
+    </div>
+    <div class="footer-col social">
+      <h3>Síguenos</h3>
+      <div>
+        <a href="#" aria-label="Twitter">t</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="GitHub">gh</a>
+        <a href="#" aria-label="Instagram">ig</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

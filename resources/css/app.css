@@ -1,0 +1,15 @@
+/* Base */
+@import './base/variables.css';
+@import './base/reset.css';
+
+/* Components */
+@import './components/buttons.css';
+@import './components/cards.css';
+
+/* Layouts */
+@import './layouts/app.css';
+@import './layouts/dashboard.css';
+
+/* Pages */
+@import './pages/home.css';
+/* @import './pages/login.css'; (Cargado específicamente en el layout de auth si es necesario) */

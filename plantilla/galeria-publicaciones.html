@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publisys - Galería de publicaciones</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar" style="border-bottom: 1px solid var(--line); margin-bottom: 0;">
+    <a class="brand" href="index.html" aria-label="Publisys inicio">
+      <span class="brand-mark">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+      <span>Publisys</span>
+    </a>
+
+    <div class="nav-panel">
+      <ul class="nav-links">
+        <li><a href="index.html#caracteristicas">Características</a></li>
+        <li><a href="proyectos.html">Proyectos</a></li>
+        <li><a href="index.html#precios">Precios</a></li>
+        <li><a href="#recursos">Recursos <span class="chevron"></span></a></li>
+        <li><a href="#docs">Docs</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Notificaciones" style="background: transparent; border-color: var(--line);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
+        </button>
+        <div class="user-chip">
+          <span class="avatar avatar-one"></span>
+          <div class="user-meta">
+            <strong>Carlos Mendoza</strong>
+            <small>Administrador</small>
+          </div>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="gallery-container">
+    <div class="section-head" style="margin-bottom: 0;">
+      <h1 style="font-size: 32px; font-weight: 800;">Galería de <span style="color: var(--blue);">publicaciones</span></h1>
+      <a class="btn btn-primary" href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        Nueva publicación
+      </a>
+    </div>
+    <p style="color: var(--muted); margin-top: 8px;">Explora y gestiona todo tu contenido publicado en un solo lugar.</p>
+
+    <div class="gallery-toolbar">
+      <div class="tabs">
+        <button class="tab active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          Todas
+        </button>
+        <button class="tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 15-5-5-9 9"/></svg>
+          Imágenes
+        </button>
+        <button class="tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>
+          PDFs
+        </button>
+        <button class="tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+          Proyectos
+        </button>
+        <button class="tab">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+          Otros
+        </button>
+      </div>
+
+      <div class="gallery-actions">
+        <label class="search" style="min-width: 300px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="search" placeholder="Buscar publicaciones...">
+        </label>
+        <select class="select-input" style="width: auto; min-width: 150px;">
+          <option>Más recientes</option>
+          <option>Más antiguos</option>
+          <option>A-Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="gallery-layout">
+      <aside class="filters-sidebar">
+        <h3>Filtros</h3>
+        
+        <div class="filter-group">
+          <h4>Tipo de publicación</h4>
+          <div class="filter-list">
+            <label class="checkbox-group">
+              <input type="checkbox" checked>
+              Todas
+            </label>
+            <label class="checkbox-group">
+              <input type="checkbox">
+              Imágenes
+            </label>
+            <label class="checkbox-group">
+              <input type="checkbox">
+              PDFs
+            </label>
+            <label class="checkbox-group">
+              <input type="checkbox">
+              Proyectos
+            </label>
+            <label class="checkbox-group">
+              <input type="checkbox">
+              Otros
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Categorías</h4>
+          <select class="select-input">
+            <option>Todas las categorías</option>
+            <option>Diseño</option>
+            <option>Naturaleza</option>
+            <option>Documentos</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Fecha</h4>
+          <div class="date-inputs">
+            <div class="date-field">
+              <label>Desde</label>
+              <input type="date" class="select-input">
+            </div>
+            <div class="date-field">
+              <label>Hasta</label>
+              <input type="date" class="select-input">
+            </div>
+          </div>
+        </div>
+
+        <button class="btn btn-outline btn-block" style="border-color: var(--line); color: var(--text);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+          Limpiar filtros
+        </button>
+      </aside>
+
+      <section class="gallery-content">
+        <div class="gallery-content-head">
+          <span>Mostrando 24 de 128 publicaciones</span>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Card 1 -->
+          <article class="publication-card">
+            <div class="thumb mountain"><span>Imagen</span></div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Montañas nevadas</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p class="meta" style="margin-top: 8px;">24 May 2024 • 10:30 AM</p>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-one" style="width: 20px; height: 20px;"></span>
+                  Carlos Mendoza
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="publication-card">
+            <div class="thumb building-dark"><span>PDF</span></div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Informe anual 2024</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p class="meta" style="margin-top: 8px;">23 May 2024 • 04:15 PM</p>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-two" style="width: 20px; height: 20px;"></span>
+                  Carlos Mendoza
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="publication-card">
+            <div class="thumb dashboard-mini"><span>Proyecto</span></div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Dashboard UI Kit</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p class="meta" style="margin-top: 8px;">22 May 2024 • 11:20 AM</p>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-three" style="width: 20px; height: 20px;"></span>
+                  Carlos Mendoza
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="publication-card">
+            <div class="thumb ocean"><span>Imagen</span></div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Olas del océano</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p class="meta" style="margin-top: 8px;">21 May 2024 • 09:45 AM</p>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-four" style="width: 20px; height: 20px;"></span>
+                  Carlos Mendoza
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="publication-card">
+            <div class="thumb concrete"><span>PDF</span></div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Guía de marca</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p class="meta" style="margin-top: 8px;">20 May 2024 • 03:30 PM</p>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-one" style="width: 20px; height: 20px;"></span>
+                  Carlos Mendoza
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="publication-card">
+            <div class="thumb ocean" style="background: linear-gradient(135deg, #aab6c0 0 35%, #263442 35% 100%);"><span>Proyecto</span></div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 style="margin: 0;">Sitio web corporativo</h3>
+                <span class="dots-menu">&#8942;</span>
+              </div>
+              <p class="meta" style="margin-top: 8px;">19 May 2024 • 02:10 PM</p>
+              <div class="card-user-info">
+                <div class="user-meta-small">
+                  <span class="avatar avatar-two" style="width: 20px; height: 20px;"></span>
+                  Carlos Mendoza
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="pagination">
+          <div class="pag-controls">
+            <button class="page-btn" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span class="page-dots">...</span>
+            <button class="page-btn">11</button>
+            <button class="page-btn" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+          </div>
+          <div class="pag-summary" style="display: flex; align-items: center; gap: 12px;">
+            <span>Ir a página</span>
+            <input type="number" class="select-input" value="1" style="width: 60px; height: 34px; text-align: center;">
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="cta-section" style="margin-top: 60px;">
+      <div class="cta-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div>
+        <h2>&iquest;Listo para publicar tu pr&oacute;ximo proyecto?</h2>
+        <p>Comparte tus ideas, documentos e im&aacute;genes con el mundo.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="#">Nueva publicaci&oacute;n</a>
+        <a class="btn btn-outline" href="#">Ver mis proyectos</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <a class="brand" href="#">
+        <span class="brand-mark">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span>Publisys</span>
+      </a>
+      <p>&copy; 2024 Publisys. Todos los derechos reservados.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Producto</h3>
+      <a href="#">Caracter&iacute;sticas</a>
+      <a href="#">Precios</a>
+      <a href="#">Changelog</a>
+    </div>
+    <div class="footer-col">
+      <h3>Recursos</h3>
+      <a href="#">Documentaci&oacute;n</a>
+      <a href="#">Guias</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="footer-col">
+      <h3>Empresa</h3>
+      <a href="#">Nosotros</a>
+      <a href="#">Contacto</a>
+      <a href="#">Privacidad</a>
+    </div>
+    <div class="footer-col social">
+      <h3>Siguenos</h3>
+      <div>
+        <a href="#" aria-label="Twitter">t</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="GitHub">gh</a>
+        <a href="#" aria-label="Instagram">ig</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,111 @@
+/* ---------- Estilos específicos para la página de Login ---------- */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 40px 0;
+}
+.login-card {
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto;
+}
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+.input-wrapper {
+  position: relative;
+}
+.input-wrapper .text-input {
+  padding-left: 44px;
+  width: 100%;
+}
+.input-wrapper svg {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: var(--muted);
+  pointer-events: none;
+}
+.input-wrapper .toggle-pass {
+  left: auto;
+  right: 14px;
+  pointer-events: all;
+  cursor: pointer;
+}
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  font-size: 13px;
+}
+.forgot-pass {
+  color: var(--blue-2);
+  font-weight: 600;
+}
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.login-footer-info {
+  margin-top: 40px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.8);
+}
+.info-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.info-text strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.info-text p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.copyright {
+  margin-top: 32px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+  .login-container { height: auto; }
+  .hero-art { display: none; }
+}
