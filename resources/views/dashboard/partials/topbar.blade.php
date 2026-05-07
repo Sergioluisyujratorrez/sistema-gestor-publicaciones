@@ -18,10 +18,16 @@
     <div class="user-chip">
       <span class="avatar avatar-one"></span>
       <div class="user-meta">
-        <strong>Carlos Mendoza</strong>
+        <strong>{{ auth()->user()?->name }}</strong>
         <small>Administrador</small>
       </div>
-      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
     </div>
+
+    <form action="{{ route('logout') }}" method="POST">
+      @csrf
+      <button class="icon-btn" type="submit" aria-label="Cerrar sesión">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5"/><path d="M21 12H9"/></svg>
+      </button>
+    </form>
   </div>
 </header>

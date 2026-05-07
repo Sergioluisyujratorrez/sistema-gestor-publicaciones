@@ -85,20 +85,28 @@
           <h2 style="font-size: 28px; margin-bottom: 8px; font-weight: 800;">Iniciar sesión</h2>
           <p style="color: var(--muted); font-size: 14px; margin-bottom: 32px; font-weight: 500;">Accede a tu cuenta de administrador</p>
 
-          <form action="{{ route('dashboard') }}">
+          <form action="{{ route('login.store') }}" method="POST">
+            @csrf
+
+            @if ($errors->any())
+              <div class="form-error" style="margin-bottom: 18px; color: #b42318; font-size: 14px; font-weight: 600;">
+                {{ $errors->first() }}
+              </div>
+            @endif
+
             <div class="form-group">
-              <label>Usuario</label>
+              <label for="email">Correo electrónico</label>
               <div class="input-wrapper">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <input type="text" class="text-input" placeholder="Ingresa tu nombre de usuario" required>
+                <input id="email" name="email" type="email" class="text-input" value="{{ old('email') }}" placeholder="Ingresa tu correo" autocomplete="email" required autofocus>
               </div>
             </div>
 
             <div class="form-group">
-              <label>Contraseña</label>
+              <label for="password">Contraseña</label>
               <div class="input-wrapper">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                <input type="password" class="text-input" placeholder="Ingresa tu contraseña" required>
+                <input id="password" name="password" type="password" class="text-input" placeholder="Ingresa tu contraseña" autocomplete="current-password" required>
                 <svg class="toggle-pass" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
               </div>
             </div>
