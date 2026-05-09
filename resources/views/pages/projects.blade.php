@@ -134,33 +134,51 @@
 
       <section class="gallery-content">
         <div class="gallery-content-head">
-          <span>Mostrando 24 de 42 proyectos</span>
+          <span>Mostrando {{ $proyectos->firstItem() ?? 0 }}–{{ $proyectos->lastItem() ?? 0 }} de {{ $proyectos->total() }} proyectos</span>
         </div>
 
-        <div class="gallery-grid">
-          <x-project-card title="Fintech Dashboard" description="Dashboard administrativo para control de finanzas y analíticas." author="Carlos Mendoza" image-class="admin-preview" avatar-class="avatar-one" type="Dashboard" link="https://fintech-dashboard.com" show-menu />
-          <x-project-card title="SaaS Landing Page" description="Landing page moderna para SaaS startup tecnológica." author="María López" image-class="landing-preview" avatar-class="avatar-two" type="Landing page" link="https://saas-landing.com" show-menu />
-          <x-project-card title="Portafolio Arquitectura" description="Sitio web minimalista para estudio de arquitectura." author="Juan Pérez" image-class="portfolio-preview" avatar-class="avatar-four" type="Sitio web" link="https://arquitectura-portfolio.com" show-menu />
-          <x-project-card title="App Mobile UI" description="Aplicación móvil para gestión de tareas y productividad." author="Carlos Mendoza" image-class="" avatar-class="avatar-one" type="Aplicación" link="https://mobile-ui-kit.com" show-menu image-style="background: linear-gradient(135deg, #1a0f3a, #4422aa);" />
-          <x-project-card title="Tienda E-commerce" description="Tienda online moderna con múltiples métodos de pago." author="María López" image-class="" avatar-class="avatar-two" type="Tienda online" link="https://tienda-online.com" show-menu image-style="background: linear-gradient(135deg, #f7f9fc, #d6deea);" />
-          <x-project-card title="Lineamientos de marca" description="Sitio web con lineamientos y recursos de marca corporativa." author="Juan Pérez" image-class="thumb-concrete" avatar-class="avatar-four" type="Sitio web" link="https://brand-guidelines.com" show-menu />
-        </div>
+        @if($proyectos->isEmpty())
+          <div style="text-align:center; padding: 60px 20px; color: var(--muted);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="48" height="48" style="display:block; margin: 0 auto 16px; opacity:.4;"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            <p>Todavía no hay proyectos publicados.</p>
+          </div>
+        @else
+          <div class="gallery-grid">
+            @foreach($proyectos as $proyecto)
+              <x-project-card
+                :title="$proyecto->titulo"
+                :description="$proyecto->descripcion ?? ''"
+                :author="$proyecto->user->name ?? 'Administrador'"
+                :type="str_replace('_', ' ', ucfirst($proyecto->tipo))"
+                :link="$proyecto->enlace ?? ''"
+                :imagen="$proyecto->imagen"
+                show-menu
+              />
+            @endforeach
+          </div>
 
-        <div class="pagination">
-          <div class="pag-controls">
-            <button class="page-btn" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
-            <button class="page-btn active">1</button>
-            <button class="page-btn">2</button>
-            <button class="page-btn">3</button>
-            <span class="page-dots">...</span>
-            <button class="page-btn">5</button>
-            <button class="page-btn" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
-          </div>
-          <div class="pag-summary" style="display: flex; align-items: center; gap: 12px;">
-            <span>Ir a página</span>
-            <input type="number" class="select-input" value="1" style="width: 60px; height: 34px; text-align: center;">
-          </div>
-        </div>
+          @if($proyectos->hasPages())
+            <div class="pagination">
+              <div class="pag-controls">
+                @if($proyectos->onFirstPage())
+                  <button class="page-btn" disabled aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
+                @else
+                  <a class="page-btn" href="{{ $proyectos->previousPageUrl() }}" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></a>
+                @endif
+
+                @foreach($proyectos->getUrlRange(1, $proyectos->lastPage()) as $page => $url)
+                  <a class="page-btn {{ $page === $proyectos->currentPage() ? 'active' : '' }}" href="{{ $url }}">{{ $page }}</a>
+                @endforeach
+
+                @if($proyectos->hasMorePages())
+                  <a class="page-btn" href="{{ $proyectos->nextPageUrl() }}" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></a>
+                @else
+                  <button class="page-btn" disabled aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+                @endif
+              </div>
+            </div>
+          @endif
+        @endif
       </section>
     </div>
 

@@ -4,10 +4,10 @@
       <h2>Proyectos</h2>
       <p>Administra tus proyectos y enlaces.</p>
     </div>
-    <a class="btn btn-primary" href="#">
+    <button class="btn btn-primary" type="button" onclick="abrirModalProyecto()">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
       Nuevo proyecto
-    </a>
+    </button>
   </div>
 
   <div class="card-grid">
@@ -23,10 +23,10 @@
       </div>
       <h3>Crear nuevo proyecto</h3>
       <p>Sube una imagen de portada<br>y agrega el enlace de tu proyecto</p>
-      <button class="btn btn-primary btn-block">Seleccionar imagen</button>
-      <input type="text" class="text-input" placeholder="Título del proyecto">
-      <input type="url" class="text-input" placeholder="https://enlace-del-proyecto.com">
-      <button class="btn btn-primary btn-block">Crear proyecto</button>
+      <button class="btn btn-primary btn-block" type="button" onclick="abrirModalProyecto()">Seleccionar imagen</button>
+      <input type="text" class="text-input" placeholder="Título del proyecto" onclick="abrirModalProyecto()" readonly style="cursor:pointer;">
+      <input type="url" class="text-input" placeholder="https://enlace-del-proyecto.com" onclick="abrirModalProyecto()" readonly style="cursor:pointer;">
+      <button class="btn btn-primary btn-block" type="button" onclick="abrirModalProyecto()">Crear proyecto</button>
     </div>
 
     <div class="table-wrap">
@@ -41,71 +41,96 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td><span class="thumb thumb-fintech"></span></td>
-            <td><strong>Fintech Dashboard</strong><small>Dashboard financiero</small></td>
-            <td><a class="ext-link" href="#">fintech-dashboard.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a></td>
-            <td><span class="date">24 May 2024<small>10:30 AM</small></span></td>
-            <td class="td-actions">
-              <button class="icon-btn ghost" aria-label="Editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>
-              <button class="icon-btn ghost danger" aria-label="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="thumb thumb-saas"></span></td>
-            <td><strong>SaaS Landing Page</strong><small>Landing page</small></td>
-            <td><a class="ext-link" href="#">saas-landing.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a></td>
-            <td><span class="date">23 May 2024<small>04:15 PM</small></span></td>
-            <td class="td-actions">
-              <button class="icon-btn ghost" aria-label="Editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>
-              <button class="icon-btn ghost danger" aria-label="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="thumb thumb-portfolio"></span></td>
-            <td><strong>Portafolio Arquitectura</strong><small>Sitio web</small></td>
-            <td><a class="ext-link" href="#">arquitectura-portfolio.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a></td>
-            <td><span class="date">22 May 2024<small>11:20 AM</small></span></td>
-            <td class="td-actions">
-              <button class="icon-btn ghost" aria-label="Editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>
-              <button class="icon-btn ghost danger" aria-label="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="thumb thumb-mobile"></span></td>
-            <td><strong>App Mobile UI</strong><small>Aplicación móvil</small></td>
-            <td><a class="ext-link" href="#">mobile-ui-kit.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a></td>
-            <td><span class="date">21 May 2024<small>09:45 AM</small></span></td>
-            <td class="td-actions">
-              <button class="icon-btn ghost" aria-label="Editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>
-              <button class="icon-btn ghost danger" aria-label="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
-            </td>
-          </tr>
-          <tr>
-            <td><span class="thumb thumb-shop"></span></td>
-            <td><strong>Tienda E-commerce</strong><small>Tienda online</small></td>
-            <td><a class="ext-link" href="#">tienda-online.com <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg></a></td>
-            <td><span class="date">20 May 2024<small>03:30 PM</small></span></td>
-            <td class="td-actions">
-              <button class="icon-btn ghost" aria-label="Editar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></button>
-              <button class="icon-btn ghost danger" aria-label="Eliminar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m3 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/></svg></button>
-            </td>
-          </tr>
+          @forelse($proyectos as $proyecto)
+            <tr>
+              <td>
+                @if($proyecto->imagen)
+                  <img src="{{ asset('storage/' . $proyecto->imagen) }}" alt="{{ $proyecto->titulo }}" class="thumb-real">
+                @else
+                  <span class="thumb thumb-portfolio" style="width:40px;height:40px;border-radius:6px;display:inline-block;"></span>
+                @endif
+              </td>
+              <td>
+                <strong>{{ $proyecto->titulo }}</strong>
+                @if($proyecto->categoria)
+                  <small>{{ $proyecto->categoria->nombre }}</small>
+                @else
+                  <small>{{ str_replace('_', ' ', ucfirst($proyecto->tipo)) }}</small>
+                @endif
+              </td>
+              <td>
+                @if($proyecto->enlace)
+                  <a class="ext-link" href="{{ $proyecto->enlace }}" target="_blank" rel="noopener">
+                    {{ parse_url($proyecto->enlace, PHP_URL_HOST) ?? $proyecto->enlace }}
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M20 14v6H4V4h6"/></svg>
+                  </a>
+                @else
+                  <span style="color:var(--muted);">—</span>
+                @endif
+              </td>
+              <td>
+                <span class="date">
+                  {{ $proyecto->created_at->format('d M Y') }}
+                  <small>{{ $proyecto->created_at->format('h:i A') }}</small>
+                </span>
+              </td>
+              <td class="td-actions">
+                <button
+                  class="icon-btn ghost"
+                  aria-label="Editar"
+                  onclick="editarProyecto(this)"
+                  data-id="{{ $proyecto->id }}"
+                  data-titulo="{{ $proyecto->titulo }}"
+                  data-descripcion="{{ $proyecto->descripcion ?? '' }}"
+                  data-tipo="{{ $proyecto->tipo }}"
+                  data-categoria="{{ $proyecto->categoria_id ?? '' }}"
+                  data-enlace="{{ $proyecto->enlace ?? '' }}"
+                  data-estado="{{ $proyecto->estado ? '1' : '0' }}"
+                  data-imagen="{{ $proyecto->imagen ?? '' }}"
+                  data-tecnologias="{{ $proyecto->tecnologias->pluck('id')->join(',') }}"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
+                </button>
+              </td>
+            </tr>
+          @empty
+            <tr>
+              <td colspan="5" style="text-align:center; padding: 40px; color: var(--muted);">
+                No hay proyectos todavía. ¡Crea el primero!
+              </td>
+            </tr>
+          @endforelse
         </tbody>
       </table>
 
-      <div class="pagination">
-        <span class="pag-summary">Mostrando 5 de 42 proyectos</span>
-        <div class="pag-controls">
-          <button class="page-btn" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
-          <button class="page-btn active">1</button>
-          <button class="page-btn">2</button>
-          <button class="page-btn">3</button>
-          <span class="page-dots">...</span>
-          <button class="page-btn">9</button>
-          <button class="page-btn" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+      @if(session('success'))
+        <div class="alert-success" style="margin: 12px 0 0;">{{ session('success') }}</div>
+      @endif
+
+      @if($proyectos->hasPages())
+        <div class="pagination">
+          <span class="pag-summary">
+            Mostrando {{ $proyectos->firstItem() }}–{{ $proyectos->lastItem() }} de {{ $proyectos->total() }} proyectos
+          </span>
+          <div class="pag-controls">
+            @if($proyectos->onFirstPage())
+              <button class="page-btn" disabled aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
+            @else
+              <a class="page-btn" href="{{ $proyectos->previousPageUrl() }}" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></a>
+            @endif
+
+            @foreach($proyectos->getUrlRange(1, $proyectos->lastPage()) as $page => $url)
+              <a class="page-btn {{ $page === $proyectos->currentPage() ? 'active' : '' }}" href="{{ $url }}">{{ $page }}</a>
+            @endforeach
+
+            @if($proyectos->hasMorePages())
+              <a class="page-btn" href="{{ $proyectos->nextPageUrl() }}" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></a>
+            @else
+              <button class="page-btn" disabled aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
+            @endif
+          </div>
         </div>
-      </div>
+      @endif
     </div>
   </div>
 </section>
