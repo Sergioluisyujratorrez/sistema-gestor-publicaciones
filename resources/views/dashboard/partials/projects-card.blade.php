@@ -30,6 +30,30 @@
     </div>
 
     <div class="table-wrap">
+      @php
+        $tipoProyActivo = request('tipo_proy');
+        $qProyActivo = request('q_proy', '');
+      @endphp
+
+      <form method="GET" class="search-bar" role="search">
+        <div class="search-input-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input type="text" name="q_proy" value="{{ $qProyActivo }}" placeholder="Buscar proyecto por título…" class="search-input">
+        </div>
+        <select name="tipo_proy" class="search-select">
+          <option value="">Todos los tipos</option>
+          <option value="sitio_web" {{ $tipoProyActivo === 'sitio_web' ? 'selected' : '' }}>Sitio web</option>
+          <option value="aplicacion" {{ $tipoProyActivo === 'aplicacion' ? 'selected' : '' }}>Aplicación</option>
+          <option value="dashboard" {{ $tipoProyActivo === 'dashboard' ? 'selected' : '' }}>Dashboard</option>
+          <option value="tienda_online" {{ $tipoProyActivo === 'tienda_online' ? 'selected' : '' }}>Tienda online</option>
+          <option value="otro" {{ $tipoProyActivo === 'otro' ? 'selected' : '' }}>Otro</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+        @if($qProyActivo !== '' || $tipoProyActivo)
+          <a href="{{ url()->current() }}" class="btn btn-ghost">Limpiar</a>
+        @endif
+      </form>
+
       <table class="data-table">
         <thead>
           <tr>
@@ -91,6 +115,19 @@
                 >
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>
                 </button>
+                <form action="{{ route('dashboard.proyectos.toggle', $proyecto) }}" method="POST" style="display:inline;" onsubmit="return confirm('{{ $proyecto->estado ? '¿Desactivar este proyecto? No será visible en la parte pública.' : '¿Activar este proyecto? Volverá a ser visible en la parte pública.' }}');">
+                  @csrf
+                  @method('PATCH')
+                  @if($proyecto->estado)
+                    <button type="submit" class="icon-btn ghost" aria-label="Desactivar" title="Desactivar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+                    </button>
+                  @else
+                    <button type="submit" class="icon-btn ghost" aria-label="Activar" title="Activar">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </button>
+                  @endif
+                </form>
               </td>
             </tr>
           @empty

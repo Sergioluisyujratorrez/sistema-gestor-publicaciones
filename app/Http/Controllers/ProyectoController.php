@@ -8,16 +8,23 @@ use App\Models\Categoria;
 use App\Models\Proyecto;
 use App\Models\Tecnologia;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class ProyectoController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
+        $q = trim((string) $request->query('q_proy', ''));
+        $tipo = $request->query('tipo_proy');
+
         $proyectos = Proyecto::with(['categoria', 'user'])
+            ->when($q !== '', fn ($query) => $query->where('titulo', 'like', "%{$q}%"))
+            ->when(in_array($tipo, ['sitio_web', 'aplicacion', 'dashboard', 'tienda_online', 'otro'], true), fn ($query) => $query->where('tipo', $tipo))
             ->latest()
-            ->paginate(10);
+            ->paginate(3)
+            ->withQueryString();
 
         $categorias = Categoria::where('estado', true)
             ->whereIn('tipo', ['proyecto', 'ambos'])
@@ -83,6 +90,17 @@ class ProyectoController extends Controller
 
         return redirect()->route('dashboard.proyectos')
             ->with('success', 'Proyecto actualizado exitosamente.');
+    }
+
+    public function toggleEstado(Proyecto $proyecto): RedirectResponse
+    {
+        $proyecto->update(['estado' => ! $proyecto->estado]);
+
+        $mensaje = $proyecto->estado
+            ? 'Proyecto activado exitosamente.'
+            : 'Proyecto desactivado exitosamente.';
+
+        return redirect()->route('dashboard.proyectos')->with('success', $mensaje);
     }
 
     private function generateUniqueSlug(string $titulo, ?int $excludeId = null): string

@@ -9,16 +9,33 @@
     'archivo' => null,
 ])
 
+@php
+    $extension = $archivo ? strtolower(pathinfo($archivo, PATHINFO_EXTENSION)) : '';
+    $esPdf = $extension === 'pdf' || $type === 'PDF';
+    $archivoUrl = $archivo ? asset('storage/'.$archivo) : '';
+    $clickable = (bool) $archivo;
+@endphp
+
 <article class="publication-card">
   @if($archivo)
-    @if(str_starts_with(strtolower(pathinfo($archivo, PATHINFO_EXTENSION)), 'pdf') || $type === 'PDF')
-      <div class="thumb" style="background:#fef2f2; display:flex; align-items:center; justify-content:center;">
+    @if($esPdf)
+      <button type="button" class="thumb thumb-clickable"
+              style="background:#fef2f2; display:flex; align-items:center; justify-content:center; border:0; cursor:pointer; padding:0; width:100%;"
+              onclick="verPublicacion(this)"
+              data-archivo="{{ $archivoUrl }}"
+              data-tipo="pdf"
+              data-titulo="{{ $title }}">
         <svg viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.5" width="32" height="32"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/></svg>
-      </div>
+      </button>
     @else
-      <div class="thumb" style="padding:0; overflow:hidden;">
-        <img src="{{ asset('storage/' . $archivo) }}" alt="{{ $title }}" style="width:100%; height:100%; object-fit:cover; display:block;">
-      </div>
+      <button type="button" class="thumb thumb-clickable"
+              style="padding:0; overflow:hidden; border:0; cursor:pointer; width:100%; background:transparent;"
+              onclick="verPublicacion(this)"
+              data-archivo="{{ $archivoUrl }}"
+              data-tipo="imagen"
+              data-titulo="{{ $title }}">
+        <img src="{{ $archivoUrl }}" alt="{{ $title }}" style="width:100%; height:100%; object-fit:cover; display:block;">
+      </button>
     @endif
   @else
     <div class="thumb {{ $thumbClass }}" @if($thumbStyle) style="{{ $thumbStyle }}" @endif><span>{{ $type }}</span></div>
@@ -26,7 +43,15 @@
 
   <div class="card-body">
     <div class="card-title-row">
-      <h3 style="margin: 0;">{{ $title }}</h3>
+      @if($clickable)
+        <h3 style="margin: 0; cursor: pointer;"
+            onclick="verPublicacion(this)"
+            data-archivo="{{ $archivoUrl }}"
+            data-tipo="{{ $esPdf ? 'pdf' : 'imagen' }}"
+            data-titulo="{{ $title }}">{{ $title }}</h3>
+      @else
+        <h3 style="margin: 0;">{{ $title }}</h3>
+      @endif
       @if($showMenu)
         <span class="dots-menu">&#8942;</span>
       @endif

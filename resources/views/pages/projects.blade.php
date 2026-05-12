@@ -15,122 +15,128 @@
     </div>
     <p style="color: var(--muted); margin-top: 8px;">Explora y descubre todos los proyectos publicados.</p>
 
-    <div class="gallery-toolbar">
-      <div class="tabs">
-        <button class="tab active">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-          Todos
-        </button>
-        <button class="tab">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10M7 12h10M7 16h10"/></svg>
-          Sitios web
-        </button>
-        <button class="tab">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          Aplicaciones
-        </button>
-        <button class="tab">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
-          Dashboards
-        </button>
-        <button class="tab">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          Tiendas online
-        </button>
-        <button class="tab">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
-          Otros
-        </button>
-      </div>
+    @php
+      $fTipo = request('tipo');
+      $fQ = request('q', '');
+      $fCategoria = request('categoria');
+      $fDesde = request('desde');
+      $fHasta = request('hasta');
+      $fOrden = request('orden', 'recientes');
+      $hayFiltros = $fTipo || $fQ !== '' || $fCategoria || $fDesde || $fHasta || ($fOrden && $fOrden !== 'recientes');
+    @endphp
 
-      <div class="gallery-actions">
-        <label class="search" style="min-width: 300px;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input type="search" placeholder="Buscar proyectos...">
-        </label>
-        <select class="select-input" style="width: auto; min-width: 150px;">
-          <option>Más recientes</option>
-          <option>Más populares</option>
-          <option>A-Z</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="gallery-layout">
-      <aside class="filters-sidebar">
-        <h3>Filtros</h3>
-        
-        <div class="filter-group">
-          <h4>Tipo de proyecto</h4>
-          <div class="filter-list">
-            <label class="checkbox-group">
-              <input type="checkbox" checked>
-              Todos
-            </label>
-            <label class="checkbox-group">
-              <input type="checkbox">
-              Sitios web
-            </label>
-            <label class="checkbox-group">
-              <input type="checkbox">
-              Aplicaciones
-            </label>
-            <label class="checkbox-group">
-              <input type="checkbox">
-              Dashboards
-            </label>
-            <label class="checkbox-group">
-              <input type="checkbox">
-              Tiendas online
-            </label>
-            <label class="checkbox-group">
-              <input type="checkbox">
-              Otros
-            </label>
-          </div>
+    <form method="GET" action="{{ route('proyectos') }}" id="proyectosFiltros">
+      <div class="gallery-toolbar">
+        <div class="tabs">
+          <a class="tab {{ ! $fTipo ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['tipo' => null, 'page' => null]) }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            Todos
+          </a>
+          <a class="tab {{ $fTipo === 'sitio_web' ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['tipo' => 'sitio_web', 'page' => null]) }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10M7 12h10M7 16h10"/></svg>
+            Sitios web
+          </a>
+          <a class="tab {{ $fTipo === 'aplicacion' ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['tipo' => 'aplicacion', 'page' => null]) }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Aplicaciones
+          </a>
+          <a class="tab {{ $fTipo === 'dashboard' ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['tipo' => 'dashboard', 'page' => null]) }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            Dashboards
+          </a>
+          <a class="tab {{ $fTipo === 'tienda_online' ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['tipo' => 'tienda_online', 'page' => null]) }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Tiendas online
+          </a>
+          <a class="tab {{ $fTipo === 'otro' ? 'active' : '' }}" href="{{ request()->fullUrlWithQuery(['tipo' => 'otro', 'page' => null]) }}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+            Otros
+          </a>
         </div>
 
-        <div class="filter-group">
-          <h4>Categorías</h4>
-          <select class="select-input">
-            <option>Todas las categorías</option>
-            <option>Fintech</option>
-            <option>SaaS</option>
-            <option>E-commerce</option>
-            <option>Portfolio</option>
+        <div class="gallery-actions">
+          <label class="search" style="min-width: 300px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" name="q" value="{{ $fQ }}" placeholder="Buscar proyectos...">
+          </label>
+          <select name="orden" class="select-input" style="width: auto; min-width: 150px;" onchange="this.form.submit()">
+            <option value="recientes" {{ $fOrden === 'recientes' ? 'selected' : '' }}>Más recientes</option>
+            <option value="antiguos" {{ $fOrden === 'antiguos' ? 'selected' : '' }}>Más antiguos</option>
+            <option value="az" {{ $fOrden === 'az' ? 'selected' : '' }}>A-Z</option>
           </select>
         </div>
+      </div>
 
-        <div class="filter-group">
-          <h4>Tecnologías</h4>
-          <select class="select-input">
-            <option>Todas las tecnologías</option>
-            <option>React</option>
-            <option>Vue.js</option>
-            <option>Node.js</option>
-            <option>Python</option>
-          </select>
-        </div>
+      <div class="gallery-layout">
+        <aside class="filters-sidebar">
+          <h3>Filtros</h3>
 
-        <div class="filter-group">
-          <h4>Fecha</h4>
-          <div class="date-inputs">
-            <div class="date-field">
-              <label>Desde</label>
-              <input type="date" class="select-input">
-            </div>
-            <div class="date-field">
-              <label>Hasta</label>
-              <input type="date" class="select-input">
+          <div class="filter-group">
+            <h4>Tipo de proyecto</h4>
+            <div class="filter-list">
+              <label class="checkbox-group">
+                <input type="radio" name="tipo" value="" {{ ! $fTipo ? 'checked' : '' }} onchange="this.form.submit()">
+                Todos
+              </label>
+              <label class="checkbox-group">
+                <input type="radio" name="tipo" value="sitio_web" {{ $fTipo === 'sitio_web' ? 'checked' : '' }} onchange="this.form.submit()">
+                Sitios web
+              </label>
+              <label class="checkbox-group">
+                <input type="radio" name="tipo" value="aplicacion" {{ $fTipo === 'aplicacion' ? 'checked' : '' }} onchange="this.form.submit()">
+                Aplicaciones
+              </label>
+              <label class="checkbox-group">
+                <input type="radio" name="tipo" value="dashboard" {{ $fTipo === 'dashboard' ? 'checked' : '' }} onchange="this.form.submit()">
+                Dashboards
+              </label>
+              <label class="checkbox-group">
+                <input type="radio" name="tipo" value="tienda_online" {{ $fTipo === 'tienda_online' ? 'checked' : '' }} onchange="this.form.submit()">
+                Tiendas online
+              </label>
+              <label class="checkbox-group">
+                <input type="radio" name="tipo" value="otro" {{ $fTipo === 'otro' ? 'checked' : '' }} onchange="this.form.submit()">
+                Otros
+              </label>
             </div>
           </div>
-        </div>
 
-        <button class="btn btn-outline btn-block" style="border-color: var(--line); color: var(--text);">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
-          Limpiar filtros
-        </button>
-      </aside>
+          <div class="filter-group">
+            <h4>Categorías</h4>
+            <select name="categoria" class="select-input" onchange="this.form.submit()">
+              <option value="">Todas las categorías</option>
+              @foreach($categorias as $cat)
+                <option value="{{ $cat->id }}" {{ (string) $fCategoria === (string) $cat->id ? 'selected' : '' }}>{{ $cat->nombre }}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <h4>Fecha</h4>
+            <div class="date-inputs">
+              <div class="date-field">
+                <label>Desde</label>
+                <input type="date" name="desde" value="{{ $fDesde }}" class="select-input" onchange="this.form.submit()">
+              </div>
+              <div class="date-field">
+                <label>Hasta</label>
+                <input type="date" name="hasta" value="{{ $fHasta }}" class="select-input" onchange="this.form.submit()">
+              </div>
+            </div>
+          </div>
+
+          @if($hayFiltros)
+            <a href="{{ route('proyectos') }}" class="btn btn-outline btn-block" style="border-color: var(--line); color: var(--text); text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              Limpiar filtros
+            </a>
+          @else
+            <button type="button" class="btn btn-outline btn-block" disabled style="border-color: var(--line); color: var(--muted); opacity: .55;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 16px;"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              Limpiar filtros
+            </button>
+          @endif
+        </aside>
 
       <section class="gallery-content">
         <div class="gallery-content-head">
@@ -181,6 +187,7 @@
         @endif
       </section>
     </div>
+    </form>
 
     <section class="cta-section" style="margin-top: 60px;">
       <div class="cta-icon">

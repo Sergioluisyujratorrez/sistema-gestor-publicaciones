@@ -7,17 +7,26 @@ use App\Http\Requests\UpdatePublicacionRequest;
 use App\Models\Categoria;
 use App\Models\Publicacion;
 use App\Models\Tecnologia;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class PublicacionController extends Controller
 {
-    public function index(): View
+    public function index(Request $request): View
     {
+        $q = trim((string) $request->query('q_pub', ''));
+        $tipo = $request->query('tipo_pub');
+
         $publicaciones = Publicacion::with(['categoria', 'user'])
+            ->when($q !== '', fn ($query) => $query->where('titulo', 'like', "%{$q}%"))
+            ->when(in_array($tipo, ['imagen', 'pdf', 'otro'], true), fn ($query) => $query->where('tipo', $tipo))
             ->latest()
-            ->paginate(10);
+            ->paginate(3)
+            ->withQueryString();
 
         $categorias = Categoria::where('estado', true)
             ->whereIn('tipo', ['publicacion', 'ambos'])
@@ -78,6 +87,38 @@ class PublicacionController extends Controller
 
         return redirect()->route('dashboard.publicaciones')
             ->with('success', 'Publicación actualizada exitosamente.');
+    }
+
+    public function reporte(Request $request): Response
+    {
+        $q = trim((string) $request->query('q_pub', ''));
+        $tipo = $request->query('tipo_pub');
+
+        $publicaciones = Publicacion::with('categoria')
+            ->when($q !== '', fn ($query) => $query->where('titulo', 'like', "%{$q}%"))
+            ->when(in_array($tipo, ['imagen', 'pdf', 'otro'], true), fn ($query) => $query->where('tipo', $tipo))
+            ->latest()
+            ->get();
+
+        $pdf = Pdf::loadView('dashboard.reports.publicaciones-report', [
+            'publicaciones' => $publicaciones,
+            'filtroQ' => $q,
+            'filtroTipo' => $tipo,
+            'generadoEn' => now(),
+        ])->setPaper('letter', 'portrait');
+
+        return $pdf->download('reporte-publicaciones-'.now()->format('Y-m-d-His').'.pdf');
+    }
+
+    public function toggleEstado(Publicacion $publicacion): RedirectResponse
+    {
+        $publicacion->update(['estado' => ! $publicacion->estado]);
+
+        $mensaje = $publicacion->estado
+            ? 'Publicación activada exitosamente.'
+            : 'Publicación desactivada exitosamente.';
+
+        return redirect()->route('dashboard.publicaciones')->with('success', $mensaje);
     }
 
     private function generateUniqueSlug(string $titulo, ?int $excludeId = null): string
